@@ -12,17 +12,15 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+This package allows you to accelerate your Flutter development, and have clearer and easier to maintain code.
 
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+you can use  : 
+
+MyWidget().withCenter();
+
 
 ## Usage
 
@@ -35,9 +33,9 @@ const like = 'sample';
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+this lib use timeago package
+
+
 =======
 # flemme_dev
 Package Flutter Light
