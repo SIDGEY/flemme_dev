@@ -1,5 +1,6 @@
 library flemme;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get_time_ago/get_time_ago.dart';
 
@@ -66,6 +67,10 @@ extension SidgeyString on String {
       return "${substring(0, number - 1)} ...";
     }
     return this;
+  }
+
+  void debugPrintWeb() {
+    if (kDebugMode) print(this);
   }
 }
 
