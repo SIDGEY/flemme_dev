@@ -6,12 +6,6 @@ import 'package:get_time_ago/get_time_ago.dart';
 
 import 'TimeFunc.dart';
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
-
 extension SidgeyWidget on Widget {
   Padding withPadding({
     EdgeInsets padding = const EdgeInsets.all(8.0),
