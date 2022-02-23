@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- 
 This README describes the package. If you publish this package to pub.dev,
 this README's contents appear on the landing page for your package.
@@ -37,3 +38,7 @@ const like = 'sample';
 TODO: Tell users more about the package: where to find more information, how to 
 contribute to the package, how to file issues, what response they can expect 
 from the package authors, and more.
+=======
+# flemme_dev
+Package Flutter Light
+>>>>>>> bcab6f6ada0718c068eb40d8f3ffb9a6c7a88d61
