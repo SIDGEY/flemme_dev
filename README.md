@@ -19,7 +19,7 @@ For use Flemme object by following steps :
 import 'package:flemme/flemme.dart';
 ```
 
-#Defaut code Flutter Example:
+Defaut code Flutter Example:
 
 ```dart
 
@@ -52,7 +52,7 @@ Scaffold defaultFlutterScaffoldExample() {
 
 ```
 
-#Same with Flemme:
+Same with Flemme:
 
 ```dart
  
@@ -75,17 +75,82 @@ Scaffold flemmeScaffoldExample() {
 
 ```
 
-## Usage
+## For all Widget
 
+Create and custom Padding
 ```dart
+// default value :  EdgeInsets.all(8.0)
+Padding myPadding = Text('sample').withPadding();
 
-//For create TextWidget (customisable) on String just call :
-Text myText = 'sample'.toTextWidget();
+// you can custome like  :  
+Padding myPadding = Text('sample').withPadding(padding: EdgeInsets.all(20.0));
+```
 
-//For use Center Widget
+Encapsulate your Widget in another
+```dart
+// Center
 Center center = myText.withCenter();
+// Flexible
+// defaut value flex = 1 , FlexFir = FlexFit.tight
+Flexible myFlexible = 'sample'.withFlexible();
+Flexible myFlexible = 'sample'.withFlexible(flex:2);
+
+//  Expanded
+// defaut value flex = 1 
+Expanded myExpanded = 'sample'.withExpanded();
+Expanded myExpanded = 'sample'.withExpanded(flex:2);
 
 ```
 
 
+Generate a modal from a widget
+```dart
+  //context is necessary
+ Container().showHimself(context);
+
+  // custom background color, default transparent:
+  Container().showHimself(context, bgColor:Colors.red);
+
+```
+## For String
+```dart
+    //ellips text with '...' defaut value lenght 140
+    String textShort = 'text too long'.ellipse();
+
+    //custom lenght: 
+    String textShort = 'text too long'.ellipse(lenght:32);
+    
+    //Convert quickly String to Text Widget
+    Text myText = 'my sample'.toTextWidget();
+    // you can custom with every Text parameter
+
+```
+
+## For DateTime
+```dart
+    //convert DateTime to short string 
+    //String like 10 seconds ago, a minute ago, 7 hours ago, etc. if is before now
+    //String like in 10 seconds , in a minute, in 7 hours, etc. if is after now
+    String time = DateTime().returnDateSmall();
+
+    //custom lenght: 
+    String textShort = 'text too long'.ellipse(lenght:32);
+    
+    //Convert quickly String to Text Widget
+    Text myText = 'my sample'.toTextWidget();
+    // you can custom with every Text parameter
+
+```
+
+
+## For List<Widget>
+```dart
+List<Widget> myList = ['sample'.toTextWidget(),'sample'.toTextWidget(),'sample'.toTextWidget(),'sample'.toTextWidget()];
+
+//Convert list to Row
+Row myRow = myList.listToRow();
+
+//Convert list to Column
+Column myRow = myList.listToColumn();
+```
 

@@ -143,13 +143,13 @@ class FrenchMessagesAfter implements Messages {
 
 class EnglishMessagesAfter implements Messages {
   @override
-  String prefixAgo() => '';
+  String prefixAgo() => 'in';
 
   @override
   String prefixFromNow() => '';
 
   @override
-  String suffixAgo() => 'ago';
+  String suffixAgo() => '';
 
   @override
   String suffixFromNow() => 'from now';

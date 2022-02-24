@@ -54,9 +54,9 @@ extension SidgeyWidget on Widget {
 }
 
 extension SidgeyString on String {
-  String ellipse({int number = 140}) {
-    if (length >= number) {
-      return "${substring(0, number - 1)} ...";
+  String ellipse({int lenght = 140}) {
+    if (length >= lenght) {
+      return "${substring(0, lenght - 1)} ...";
     }
     return this;
   }
