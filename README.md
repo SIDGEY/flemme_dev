@@ -1,42 +1,156 @@
-<<<<<<< HEAD
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# flemme
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
-
-This package allows you to accelerate your Flutter development, and have clearer and easier to maintain code.
+Flutter , Light , Early, Making, Material, Environnement
+Simplify the writing of your widgets with Flemme
 
 
-## Getting started
+## Installation
+Add `flemme` as a dependency in your pubspec.yaml file.
 
-you can use  : 
-
-MyWidget().withCenter();
-
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
-```dart
-const like = 'sample';
+```yaml
+dependencies:
+  flemme: ^0.0.3
 ```
 
-## Additional information
 
-this lib use timeago package
+## Get Started
+For use Flemme object by following steps :
+```dart
+import 'package:flemme/flemme.dart';
+```
+
+Defaut code Flutter Example:
+
+```dart
+
+Scaffold defaultFlutterScaffoldExample() {
+  return Scaffold(
+    appBar: AppBar(
+      title: Text(widget.title),
+    ),
+    body: Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          const Text(
+            'You have pushed the button this many times:',
+          ),
+          Text(
+            '$_counter',
+            style: Theme.of(context).textTheme.headline4,
+          ),
+        ],
+      ),
+    ),
+    floatingActionButton: FloatingActionButton(
+      onPressed: _incrementCounter,
+      tooltip: 'Increment',
+      child: const Icon(Icons.add),
+    ), // This trailing comma makes auto-formatting nicer for build methods.
+  );
+}
+
+```
+
+Same with Flemme:
+
+```dart
+ 
+Scaffold flemmeScaffoldExample() {
+  return Scaffold(
+    appBar: AppBar(
+      title: widget.title.toTextWidget(),
+    ),
+    body: [
+      'You have pushed the button this many times:'.toTextWidget(),
+      '$_counter'.toTextWidget(style: Theme.of(context).textTheme.headline4),
+    ].listToColumn(mainAxisAlignment: MainAxisAlignment.center).withCenter(),
+    floatingActionButton: FloatingActionButton(
+      onPressed: _incrementCounter,
+      tooltip: 'Increment',
+      child: const Icon(Icons.add),
+    ), // This trailing comma makes auto-formatting nicer for build methods.
+  );
+}
+
+```
+
+## For all Widget
+
+Create and custom Padding
+```dart
+// default value :  EdgeInsets.all(8.0)
+Padding myPadding = Text('sample').withPadding();
+
+// you can custome like  :  
+Padding myPadding = Text('sample').withPadding(padding: EdgeInsets.all(20.0));
+```
+
+Encapsulate your Widget in another
+```dart
+// Center
+Center center = myText.withCenter();
+// Flexible
+// defaut value flex = 1 , FlexFir = FlexFit.tight
+Flexible myFlexible = 'sample'.withFlexible();
+Flexible myFlexible = 'sample'.withFlexible(flex:2);
+
+//  Expanded
+// defaut value flex = 1 
+Expanded myExpanded = 'sample'.withExpanded();
+Expanded myExpanded = 'sample'.withExpanded(flex:2);
+
+```
 
 
-=======
-# flemme_dev
-Package Flutter Light
->>>>>>> bcab6f6ada0718c068eb40d8f3ffb9a6c7a88d61
+Generate a modal from a widget
+```dart
+  //context is necessary
+ Container().showHimself(context);
+
+  // custom background color, default transparent:
+  Container().showHimself(context, bgColor:Colors.red);
+
+```
+## For String
+```dart
+    //ellips text with '...' defaut value lenght 140
+    String textShort = 'text too long'.ellipse();
+
+    //custom lenght: 
+    String textShort = 'text too long'.ellipse(lenght:32);
+    
+    //Convert quickly String to Text Widget
+    Text myText = 'my sample'.toTextWidget();
+    // you can custom with every Text parameter
+
+```
+
+## For DateTime
+```dart
+    //convert DateTime to short string 
+    //String like 10 seconds ago, a minute ago, 7 hours ago, etc. if is before now
+    //String like in 10 seconds , in a minute, in 7 hours, etc. if is after now
+    String time = DateTime().returnDateSmall();
+
+    //custom lenght: 
+    String textShort = 'text too long'.ellipse(lenght:32);
+    
+    //Convert quickly String to Text Widget
+    Text myText = 'my sample'.toTextWidget();
+    // you can custom with every Text parameter
+
+```
+
+
+## For List<Widget>
+```dart
+List<Widget> myList = ['sample'.toTextWidget(),'sample'.toTextWidget(),'sample'.toTextWidget(),'sample'.toTextWidget()];
+
+//Convert list to Row
+Row myRow = myList.listToRow();
+
+//Convert list to Column
+Column myRow = myList.listToColumn();
+```
+

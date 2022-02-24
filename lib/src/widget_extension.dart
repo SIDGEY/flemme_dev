@@ -1,4 +1,3 @@
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get_time_ago/get_time_ago.dart';
@@ -55,9 +54,9 @@ extension SidgeyWidget on Widget {
 }
 
 extension SidgeyString on String {
-  String ellipse({int number = 140}) {
-    if (length >= number) {
-      return "${substring(0, number - 1)} ...";
+  String ellipse({int lenght = 140}) {
+    if (length >= lenght) {
+      return "${substring(0, lenght - 1)} ...";
     }
     return this;
   }
@@ -65,15 +64,46 @@ extension SidgeyString on String {
   void debugPrintWeb() {
     if (kDebugMode) print(this);
   }
+
+  Text toTextWidget({
+    Key? key,
+    TextStyle? style,
+    StrutStyle? strutStyle,
+    TextAlign? textAlign,
+    TextDirection? textDirection,
+    Locale? locale,
+    bool? softWrap,
+    TextOverflow? overflow,
+    double? textScaleFactor,
+    int? maxLines,
+    String? semanticsLabel,
+    TextWidthBasis? textWidthBasis,
+    TextHeightBehavior? textHeightBehavior,
+  }) {
+    return Text(this,
+        key: key,
+        style: style,
+        strutStyle: strutStyle,
+        textAlign: textAlign,
+        textDirection: textDirection,
+        locale: locale,
+        softWrap: softWrap,
+        overflow: overflow,
+        textScaleFactor: textScaleFactor,
+        maxLines: maxLines,
+        semanticsLabel: semanticsLabel,
+        textWidthBasis: textWidthBasis,
+        textHeightBehavior: textHeightBehavior);
+  }
 }
 
 extension SidgeyDate on DateTime {
   String returnDateSmall(
-      {String defautPattern = "E dd-MM-yyyy HH:mm", String? locale}) {
+      {String defaultPattern = "E dd-MM-yyyy HH:mm", String? locale}) {
     if (isAfter(DateTime.now())) {
-      return GetTimeAfter.parse(this, locale: locale, pattern: defautPattern);
+      return GetTimeAfter.parse(this, locale: locale, pattern: defaultPattern);
     } else {
-      return GetTimeAgo.parse(this, locale: locale, pattern: defautPattern);
+      return GetTimeAgo.parse(this, locale: locale, pattern: defaultPattern);
     }
   }
 }
@@ -133,7 +163,7 @@ extension SidgeyList on List<Widget> {
 
   Column listToColumn({
     MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
-    CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.start,
+    CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
   }) {
     return Column(
       mainAxisAlignment: mainAxisAlignment,
