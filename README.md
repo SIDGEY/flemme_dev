@@ -7,9 +7,9 @@ Simplify the writing of your widgets with Flemme
 ## Installation
 Add `flemme` as a dependency in your pubspec.yaml file.
 
-```dart
+```yaml
 dependencies:
-flemme: ^0.0.3
+  flemme: ^0.0.3
 ```
 
 
@@ -19,7 +19,7 @@ For use Flemme object by following steps :
 import 'package:flemme/flemme.dart';
 ```
 
-Defaut code Flutter Example:
+#Defaut code Flutter Example:
 
 ```dart
 
@@ -52,7 +52,7 @@ Scaffold defaultFlutterScaffoldExample() {
 
 ```
 
-Same with Flemme:
+#Same with Flemme:
 
 ```dart
  
