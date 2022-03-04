@@ -1,10 +1,12 @@
 # flemme
 
+[![Plaftorm Flutter](https://img.shields.io/badge/Platform-Flutter-02569B?logo=flutter)](https://flutter.dev) [![pub package](https://img.shields.io/pub/v/flemme.svg)](https://pub.dartlang.org/packages/flemme) [![GitHub stars](https://img.shields.io/github/stars/SIDGEY/flemme_dev)](https://github.com/SIDGEY/flemme_dev/stargazers) [![GitHub forks](https://img.shields.io/github/forks/SIDGEY/flemme_dev)](https://github.com/fluttercandies/extended_text_field/network)  [![GitHub license](https://img.shields.io/github/license/SIDGEY/flemme_dev)](https://github.com/SIDGEY/flemme_dev/blob/master/LICENSE)  [![GitHub issues](https://img.shields.io/github/issues/SIDGEY/flemme_dev)](https://github.com/SIDGEY/flemme_dev/issues)
+
 Flutter , Light , Early, Making, Material, Environnement
 Simplify the writing of your widgets with Flemme
 
-
 ## Installation
+
 Add `flemme` as a dependency in your pubspec.yaml file.
 
 ```yaml
@@ -12,9 +14,10 @@ dependencies:
   flemme: ^0.0.4
 ```
 
-
 ## Get Started
+
 For use Flemme object by following steps :
+
 ```dart
 import 'package:flemme/flemme.dart';
 ```
@@ -87,6 +90,7 @@ Padding myPadding = Text('sample').withPadding(padding: EdgeInsets.all(20.0));
 ```
 
 Encapsulate your Widget in another
+
 ```dart
 // Center
 Center center = myText.withCenter();
@@ -102,8 +106,8 @@ Expanded myExpanded = 'sample'.withExpanded(flex:2);
 
 ```
 
-
 Generate a modal from a widget
+
 ```dart
   //context is necessary
  Container().showHimself(context);
@@ -112,7 +116,9 @@ Generate a modal from a widget
   Container().showHimself(context, bgColor:Colors.red);
 
 ```
+
 ## For String
+
 ```dart
     //ellips text with '...' defaut value lenght 140
     String textShort = 'text too long'.ellipse();
@@ -127,6 +133,7 @@ Generate a modal from a widget
 ```
 
 ## For DateTime
+
 ```dart
     //convert DateTime to short string 
     //String like 10 seconds ago, a minute ago, 7 hours ago, etc. if is before now
@@ -136,8 +143,8 @@ Generate a modal from a widget
 
 ```
 
-
 ## For List<Widget>
+
 ```dart
 List<Widget> myList = ['sample'.toTextWidget(),'sample'.toTextWidget(),'sample'.toTextWidget(),'sample'.toTextWidget()];
 
@@ -147,4 +154,3 @@ Row myRow = myList.listToRow();
 //Convert list to Column
 Column myRow = myList.listToColumn();
 ```
-
