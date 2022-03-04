@@ -9,7 +9,7 @@ Add `flemme` as a dependency in your pubspec.yaml file.
 
 ```yaml
 dependencies:
-  flemme: ^0.0.3
+  flemme: ^0.0.4
 ```
 
 
@@ -133,12 +133,6 @@ Generate a modal from a widget
     //String like in 10 seconds , in a minute, in 7 hours, etc. if is after now
     String time = DateTime().returnDateSmall();
 
-    //custom lenght: 
-    String textShort = 'text too long'.ellipse(lenght:32);
-    
-    //Convert quickly String to Text Widget
-    Text myText = 'my sample'.toTextWidget();
-    // you can custom with every Text parameter
 
 ```
 
