@@ -1,14 +1,15 @@
+import 'package:flemme/src/config_file.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get_time_ago/get_time_ago.dart';
 
 import 'time_func.dart';
 
-extension SidgeyWidget on Widget {
+extension FlemmeWidget on Widget {
   Padding withPadding({
-    EdgeInsets padding = const EdgeInsets.all(8.0),
+    EdgeInsets? padding,
   }) {
-    return Padding(padding: padding, child: this);
+    return Padding(padding: padding ?? FlemmeConfig().paddingAllM, child: this);
   }
 
   Flexible withFlexible({
@@ -37,13 +38,40 @@ extension SidgeyWidget on Widget {
     );
   }
 
-  Future<dynamic> showHimself(BuildContext currentContext,
-      {Color bgColor = Colors.transparent}) {
+  Future<dynamic> showHimself(
+    BuildContext currentContext, {
+    Key? key,
+    Widget? title,
+    EdgeInsetsGeometry titlePadding =
+        const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 0.0),
+    TextStyle? titleTextStyle,
+    List<Widget>? children,
+    EdgeInsetsGeometry contentPadding =
+        const EdgeInsets.fromLTRB(0.0, 12.0, 0.0, 16.0),
+    Color? backgroundColor,
+    double? elevation,
+    String? semanticLabel,
+    //EdgeInsets insetPadding = _defaultInsetPadding,
+    Clip clipBehavior = Clip.none,
+    ShapeBorder? shape,
+    AlignmentGeometry? alignment,
+  }) {
     return showDialog(
       context: currentContext,
       builder: (context) {
         return SimpleDialog(
-          backgroundColor: bgColor,
+          alignment: alignment,
+          key: key,
+          clipBehavior: clipBehavior,
+          elevation: elevation,
+          title: title,
+          contentPadding: contentPadding,
+          semanticLabel: semanticLabel,
+          shape: shape,
+          titlePadding: titlePadding,
+          titleTextStyle: titleTextStyle,
+          backgroundColor:
+              backgroundColor ?? FlemmeConfig().modalBackgroundColors,
           children: [
             this,
           ],
@@ -51,9 +79,70 @@ extension SidgeyWidget on Widget {
       },
     );
   }
+
+  Container withContainer({
+    Key? key,
+    dynamic alignment,
+    dynamic padding,
+    dynamic color,
+    dynamic decoration,
+    dynamic foregroundDecoration,
+    double? width,
+    double? height,
+    BoxConstraints? constraints,
+    dynamic margin,
+    dynamic transform,
+    dynamic transformAlignment,
+    dynamic clipBehavior = Clip.none,
+  }) {
+    return Container(
+      color: color,
+      key: key,
+      width: width,
+      alignment: alignment,
+      height: height,
+      decoration: decoration,
+      clipBehavior: clipBehavior,
+      constraints: constraints,
+      foregroundDecoration: decoration,
+      margin: margin,
+      padding: padding,
+      transform: transform,
+      transformAlignment: transformAlignment,
+      child: this,
+    );
+  }
+
+  SizedBox withSizeBox({
+    Key? key,
+    double? width,
+    double? height,
+  }) {
+    return SizedBox(
+      key: key,
+      width: width,
+      height: height,
+      child: this,
+    );
+  }
+
+  FractionallySizedBox withFractionallySizedBox({
+    Key? key,
+    AlignmentGeometry alignment = Alignment.center,
+    double? widthFactor,
+    double? heightFactor,
+  }) {
+    return FractionallySizedBox(
+      key: key,
+      alignment: alignment,
+      widthFactor: widthFactor,
+      heightFactor: heightFactor,
+      child: this,
+    );
+  }
 }
 
-extension SidgeyString on String {
+extension FlemmeString on String {
   String ellipse({int lenght = 140}) {
     if (length >= lenght) {
       return "${substring(0, lenght - 1)} ...";
@@ -97,7 +186,7 @@ extension SidgeyString on String {
   }
 }
 
-extension SidgeyDate on DateTime {
+extension FlemmeDate on DateTime {
   String returnDateSmall(
       {String defaultPattern = "E dd-MM-yyyy HH:mm", String? locale}) {
     if (isAfter(DateTime.now())) {
@@ -149,14 +238,24 @@ extension GlobalKeyExtension on GlobalKey {
   }
 }
 
-extension SidgeyList on List<Widget> {
+extension FlemmeList on List<Widget> {
   Row listToRow({
     MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
     CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.start,
+    MainAxisSize mainAxisSize = MainAxisSize.max,
+    TextDirection? textDirection,
+    VerticalDirection verticalDirection = VerticalDirection.down,
+    TextBaseline? textBaseline,
+    Key? key,
   }) {
     return Row(
       mainAxisAlignment: mainAxisAlignment,
       crossAxisAlignment: crossAxisAlignment,
+      mainAxisSize: mainAxisSize,
+      key: key,
+      textBaseline: textBaseline,
+      textDirection: textDirection,
+      verticalDirection: verticalDirection,
       children: this,
     );
   }
@@ -164,10 +263,20 @@ extension SidgeyList on List<Widget> {
   Column listToColumn({
     MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
     CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
+    MainAxisSize mainAxisSize = MainAxisSize.max,
+    TextDirection? textDirection,
+    VerticalDirection verticalDirection = VerticalDirection.down,
+    TextBaseline? textBaseline,
+    Key? key,
   }) {
     return Column(
       mainAxisAlignment: mainAxisAlignment,
       crossAxisAlignment: crossAxisAlignment,
+      mainAxisSize: mainAxisSize,
+      key: key,
+      textBaseline: textBaseline,
+      textDirection: textDirection,
+      verticalDirection: verticalDirection,
       children: this,
     );
   }

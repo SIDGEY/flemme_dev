@@ -11,7 +11,7 @@ Add `flemme` as a dependency in your pubspec.yaml file.
 
 ```yaml
 dependencies:
-  flemme: ^0.0.4
+  flemme: ^0.0.5
 ```
 
 ## Get Started
@@ -96,14 +96,22 @@ Encapsulate your Widget in another
 Center center = myText.withCenter();
 // Flexible
 // defaut value flex = 1 , FlexFir = FlexFit.tight
-Flexible myFlexible = 'sample'.withFlexible();
-Flexible myFlexible = 'sample'.withFlexible(flex:2);
+Flexible myFlexible = myText.withFlexible();
+Flexible myFlexible = myText.withFlexible(flex:2);
 
 //  Expanded
 // defaut value flex = 1 
-Expanded myExpanded = 'sample'.withExpanded();
-Expanded myExpanded = 'sample'.withExpanded(flex:2);
+Expanded myExpanded = myText.withExpanded();
+Expanded myExpanded = myText.withExpanded(flex:2);
 
+//Container
+Container myContainer = myText.withContainer();
+
+//SizeBox
+SizeBox mySizedBox = myText.withSizedBox();
+
+//FractionallySizedBox
+FractionallySizedBox myFractionallySizedBox = myText.withFractionallySizedBox();
 ```
 
 Generate a modal from a widget
