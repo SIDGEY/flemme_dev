@@ -1,4 +1,5 @@
 import 'package:flemme/flemme.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flemme Demo',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Flemme Demo Home Page'),
     );
   }
 }
@@ -95,12 +96,15 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Scaffold flemmeScaffoldExample() {
+    FlemmeConfig().paddingAllM = const EdgeInsets.all(100);
     return Scaffold(
       appBar: AppBar(
         title: widget.title.toTextWidget(),
       ),
       body: [
-        'You have pushed the button this many times:'.toTextWidget(),
+        'You have pushed the button this many times:'
+            .toTextWidget()
+            .withPadding(),
         '$_counter'.toTextWidget(style: Theme.of(context).textTheme.headline4),
       ].listToColumn(mainAxisAlignment: MainAxisAlignment.center).withCenter(),
       floatingActionButton: FloatingActionButton(

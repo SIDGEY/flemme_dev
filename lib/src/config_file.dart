@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+
 class FlemmeConfig {
   static final FlemmeConfig _singleton = FlemmeConfig._internal();
 
@@ -5,29 +8,13 @@ class FlemmeConfig {
     return _singleton;
   }
 
-  FlemmeConfig._internal() {
-    _flemmePadding = FlemmePadding();
-  }
+  FlemmeConfig._internal() {}
 
-  late FlemmePadding _flemmePadding;
+  EdgeInsets paddingAllSM = const EdgeInsets.all(4);
+  EdgeInsets paddingAllS = const EdgeInsets.all(8);
+  EdgeInsets paddingAllM = const EdgeInsets.all(12);
+  EdgeInsets paddingAllL = const EdgeInsets.all(20);
+  EdgeInsets paddingAllXL = const EdgeInsets.all(32);
 
-  FlemmePadding getPaddingConfig() {
-    return _flemmePadding;
-  }
-}
-
-class FlemmePadding {
-  static final FlemmePadding _singleton = FlemmePadding._internal();
-
-  factory FlemmePadding() {
-    return _singleton;
-  }
-
-  FlemmePadding._internal();
-
-  int paddingAllSM = 4;
-  int paddingAllS = 8;
-  int paddingAllM = 12;
-  int paddingAllL = 20;
-  int paddingAllXL = 32;
+  Color modalBackgroundColors = Colors.transparent;
 }
