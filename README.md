@@ -162,3 +162,21 @@ Row myRow = myList.listToRow();
 //Convert list to Column
 Column myRow = myList.listToColumn();
 ```
+
+## Configure and use default padding
+You can use and config default padding. 
+
+Call FlemmeConfig() for use and config. It's a single instance, you don't need to put it statically in your code, just call it where you need it. Preferably before your MaterialApp
+```dart
+ FlemmeConfig().paddingAllM = const EdgeInsets.all(100); // default padding
+
+```
+
+Default value is configure like this: 
+```dart
+  EdgeInsets paddingAllSM = const EdgeInsets.all(4);
+  EdgeInsets paddingAllS = const EdgeInsets.all(8);
+  EdgeInsets paddingAllM = const EdgeInsets.all(12);
+  EdgeInsets paddingAllL = const EdgeInsets.all(20);
+  EdgeInsets paddingAllXL = const EdgeInsets.all(32);
+```

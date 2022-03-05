@@ -4,6 +4,8 @@
 * add option on showHimSelf()
 * add option on listToRow & listToColumn
 
+## 0.0.4
+* minor correctif
 
 ## 0.0.3
 * add documentation, example and complete read.me.
