@@ -1,8 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
-import 'package:get_time_ago/messages/languages/en_msg.dart';
-import 'package:get_time_ago/messages/messages.dart';
+import 'package:get_time_ago/get_time_ago.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
@@ -37,15 +36,14 @@ class GetTimeAfter {
   ///
 
   static String parse(DateTime dateTime, {String? locale, String? pattern}) {
-    final _locale = locale ?? _defaultLocale;
-    final _message = _messageMap[_locale] ?? EnglishMessages();
-    final _pattern = pattern ?? "dd MMM, yyyy hh:mm aa";
-    final date = DateFormat(_pattern).format(dateTime);
-    var elapsed =
-        dateTime.millisecondsSinceEpoch - DateTime.now().millisecondsSinceEpoch;
+    final localeUsed = locale ?? _defaultLocale;
+    final message = _messageMap[localeUsed] ?? EnglishMessages();
+    final patternUsed = pattern ?? "dd MMM, yyyy hh:mm aa";
+    final date = DateFormat(patternUsed).format(dateTime);
+    var elapsed = dateTime.millisecondsSinceEpoch - DateTime.now().millisecondsSinceEpoch;
 
-    var _prefix = _message.prefixAgo();
-    var _suffix = _message.suffixAgo();
+    var prefix = message.prefixAgo();
+    var suffix = message.suffixAgo();
 
     ///
     /// Getting [seconds], [minutes], [hours], [days] from provided [dateTime]
@@ -60,40 +58,26 @@ class GetTimeAfter {
     String msg;
     String result;
     if (seconds < 59) {
-      msg = _message.secsAgo(seconds.round());
-      result = [_prefix, msg, _suffix]
-          .where((res) => res.isNotEmpty)
-          .join(_message.wordSeparator());
+      msg = message.secsAgo(seconds.round());
+      result = [prefix, msg, suffix].where((res) => res.isNotEmpty).join(message.wordSeparator());
     } else if (seconds < 119) {
-      msg = _message.minAgo(minutes.round());
-      result = [_prefix, msg, _suffix]
-          .where((res) => res.isNotEmpty)
-          .join(_message.wordSeparator());
+      msg = message.minAgo(minutes.round());
+      result = [prefix, msg, suffix].where((res) => res.isNotEmpty).join(message.wordSeparator());
     } else if (minutes < 59) {
-      msg = _message.minsAgo(minutes.round());
-      result = [_prefix, msg, _suffix]
-          .where((res) => res.isNotEmpty)
-          .join(_message.wordSeparator());
+      msg = message.minsAgo(minutes.round());
+      result = [prefix, msg, suffix].where((res) => res.isNotEmpty).join(message.wordSeparator());
     } else if (minutes < 119) {
-      msg = _message.hourAgo(hours.round());
-      result = [_prefix, msg, _suffix]
-          .where((res) => res.isNotEmpty)
-          .join(_message.wordSeparator());
+      msg = message.hourAgo(hours.round());
+      result = [prefix, msg, suffix].where((res) => res.isNotEmpty).join(message.wordSeparator());
     } else if (hours < 24) {
-      msg = _message.hoursAgo(hours.round());
-      result = [_prefix, msg, _suffix]
-          .where((res) => res.isNotEmpty)
-          .join(_message.wordSeparator());
+      msg = message.hoursAgo(hours.round());
+      result = [prefix, msg, suffix].where((res) => res.isNotEmpty).join(message.wordSeparator());
     } else if (hours < 48) {
-      msg = _message.dayAgo(hours.round());
-      result = [_prefix, msg, _suffix]
-          .where((res) => res.isNotEmpty)
-          .join(_message.wordSeparator());
+      msg = message.dayAgo(hours.round());
+      result = [prefix, msg, suffix].where((res) => res.isNotEmpty).join(message.wordSeparator());
     } else if (days < 8) {
-      msg = _message.daysAgo(days.round());
-      result = [_prefix, msg, _suffix]
-          .where((res) => res.isNotEmpty)
-          .join(_message.wordSeparator());
+      msg = message.daysAgo(days.round());
+      result = [prefix, msg, suffix].where((res) => res.isNotEmpty).join(message.wordSeparator());
     } else {
       msg = date;
       result = date;
@@ -107,13 +91,11 @@ class FrenchMessagesAfter implements Messages {
   @override
   String prefixAgo() => 'Dans ';
 
-  @override
   String prefixFromNow() => "d'ici";
 
   @override
   String suffixAgo() => '';
 
-  @override
   String suffixFromNow() => '';
 
   @override
@@ -145,13 +127,11 @@ class EnglishMessagesAfter implements Messages {
   @override
   String prefixAgo() => 'in';
 
-  @override
   String prefixFromNow() => '';
 
   @override
   String suffixAgo() => '';
 
-  @override
   String suffixFromNow() => 'from now';
 
   @override
@@ -183,13 +163,11 @@ class EspanaMessagesAfter implements Messages {
   @override
   String prefixAgo() => 'hace';
 
-  @override
   String prefixFromNow() => 'dentro de';
 
   @override
   String suffixAgo() => '';
 
-  @override
   String suffixFromNow() => '';
 
   @override

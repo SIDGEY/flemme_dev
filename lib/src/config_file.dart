@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class FlemmeConfig {
   static final FlemmeConfig _singleton = FlemmeConfig._internal();
@@ -8,7 +7,7 @@ class FlemmeConfig {
     return _singleton;
   }
 
-  FlemmeConfig._internal() {}
+  FlemmeConfig._internal();
 
   EdgeInsets paddingAllSM = const EdgeInsets.all(4);
   EdgeInsets paddingAllS = const EdgeInsets.all(8);

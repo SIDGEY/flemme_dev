@@ -1,5 +1,4 @@
 import 'package:flemme/flemme.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -102,9 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: widget.title.toTextWidget(),
       ),
       body: [
-        'You have pushed the button this many times:'
-            .toTextWidget()
-            .withPadding(),
+        'You have pushed the button this many times:'.toTextWidget().withPadding(),
         '$_counter'.toTextWidget(style: Theme.of(context).textTheme.headline4),
       ].listToColumn(mainAxisAlignment: MainAxisAlignment.center).withCenter(),
       floatingActionButton: FloatingActionButton(
