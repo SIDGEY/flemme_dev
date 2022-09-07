@@ -1,6 +1,6 @@
 name: flemme
 description: Flutter , Light , Early, Making, Material, Environnement.  Simplify the writing of your widgets with Flemme!
-version: 0.0.5
+version: 0.0.6
 homepage: https://github.com/SIDGEY/flemme_dev
 
 environment:
@@ -17,7 +17,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^1.0.0
+  flutter_lints: ^2.0.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
