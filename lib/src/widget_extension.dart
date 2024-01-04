@@ -42,12 +42,10 @@ extension FlemmeWidget on Widget {
     BuildContext currentContext, {
     Key? key,
     Widget? title,
-    EdgeInsetsGeometry titlePadding =
-        const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 0.0),
+    EdgeInsetsGeometry titlePadding = const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 0.0),
     TextStyle? titleTextStyle,
     List<Widget>? children,
-    EdgeInsetsGeometry contentPadding =
-        const EdgeInsets.fromLTRB(0.0, 12.0, 0.0, 16.0),
+    EdgeInsetsGeometry contentPadding = const EdgeInsets.fromLTRB(0.0, 12.0, 0.0, 16.0),
     Color? backgroundColor,
     double? elevation,
     String? semanticLabel,
@@ -70,8 +68,7 @@ extension FlemmeWidget on Widget {
           shape: shape,
           titlePadding: titlePadding,
           titleTextStyle: titleTextStyle,
-          backgroundColor:
-              backgroundColor ?? FlemmeConfig().modalBackgroundColors,
+          backgroundColor: backgroundColor ?? FlemmeConfig().modalBackgroundColors,
           children: [
             this,
           ],
@@ -163,7 +160,7 @@ extension FlemmeString on String {
     Locale? locale,
     bool? softWrap,
     TextOverflow? overflow,
-    double? textScaleFactor,
+    TextScaler? textScaler,
     int? maxLines,
     String? semanticsLabel,
     TextWidthBasis? textWidthBasis,
@@ -178,7 +175,7 @@ extension FlemmeString on String {
         locale: locale,
         softWrap: softWrap,
         overflow: overflow,
-        textScaleFactor: textScaleFactor,
+        textScaler: textScaler,
         maxLines: maxLines,
         semanticsLabel: semanticsLabel,
         textWidthBasis: textWidthBasis,
@@ -187,8 +184,7 @@ extension FlemmeString on String {
 }
 
 extension FlemmeDate on DateTime {
-  String returnDateSmall(
-      {String defaultPattern = "E dd-MM-yyyy HH:mm", String? locale}) {
+  String returnDateSmall({String defaultPattern = "E dd-MM-yyyy HH:mm", String? locale}) {
     if (isAfter(DateTime.now())) {
       return GetTimeAfter.parse(this, locale: locale, pattern: defaultPattern);
     } else {
@@ -202,8 +198,7 @@ extension GlobalKeyExtension on GlobalKey {
     final renderObject = currentContext?.findRenderObject();
     var translation = renderObject?.getTransformTo(null).getTranslation();
     if (translation != null) {
-      return renderObject!.paintBounds
-          .shift(Offset(translation.x, translation.y));
+      return renderObject!.paintBounds.shift(Offset(translation.x, translation.y));
     } else {
       return null;
     }
