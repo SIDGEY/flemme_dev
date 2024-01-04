@@ -1,3 +1,12 @@
+## 0.0.9
+* upgrade dependency
+
+## 0.0.8
+* upgrade dependency
+
+## 0.0.7
+* upgrade dependency
+
 ## 0.0.6
 * upgrade dependency
 
