@@ -11,7 +11,7 @@ Add `flemme` as a dependency in your pubspec.yaml file.
 
 ```yaml
 dependencies:
-  flemme: ^0.0.9
+  flemme: ^0.0.10
 ```
 
 ## Get Started
