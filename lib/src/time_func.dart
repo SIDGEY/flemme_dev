@@ -121,6 +121,9 @@ class FrenchMessagesAfter implements Messages {
 
   @override
   String wordSeparator() => ' ';
+
+  @override
+  String justNow(int seconds) => 'à l\'instant';
 }
 
 class EnglishMessagesAfter implements Messages {
@@ -157,6 +160,9 @@ class EnglishMessagesAfter implements Messages {
 
   @override
   String wordSeparator() => ' ';
+
+  @override
+  String justNow(int seconds) => 'just now';
 }
 
 class EspanaMessagesAfter implements Messages {
@@ -193,6 +199,9 @@ class EspanaMessagesAfter implements Messages {
 
   @override
   String wordSeparator() => ' ';
+
+  @override
+  String justNow(int seconds) => 'justo ahora';
 }
 
 //Public Holiday

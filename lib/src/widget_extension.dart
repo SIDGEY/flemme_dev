@@ -49,7 +49,6 @@ extension FlemmeWidget on Widget {
     Color? backgroundColor,
     double? elevation,
     String? semanticLabel,
-    //EdgeInsets insetPadding = _defaultInsetPadding,
     Clip clipBehavior = Clip.none,
     ShapeBorder? shape,
     AlignmentGeometry? alignment,
