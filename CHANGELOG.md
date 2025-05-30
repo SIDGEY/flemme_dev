@@ -1,3 +1,6 @@
+## 0.1.0
+* upgrade dependency for 3.22
+
 ## 0.0.13
 * upgrade dependency
 
